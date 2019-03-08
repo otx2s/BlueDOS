@@ -12,4 +12,5 @@
 1. clone this project
 2. cd BlueDOS
 3. chmod 777 bluedos.py
-4. tsu python bluedos.py
+4. tsu
+5. python bluedos.py
