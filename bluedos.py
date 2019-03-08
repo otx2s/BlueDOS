@@ -28,6 +28,10 @@ banner = R+BOLD+r"""
 """+G+BOLD+"""Version"""+W+""": 1.0
 """+W
 
+if os.geteuid() != 0:
+    print(R+BOLD+"[!]"+W+" Please run the BlueDOS setup as root!")
+    exit()
+
 def main():
     try:
         print(banner)
