@@ -38,7 +38,7 @@ def main():
         hop[2] = int(input(B+POD+"SIZE"+W+" (default: 600) > ") or 600)
         print(G+"-"*30+W)
         start = input("Do you want to start: (Y/n) ")
-        if start == 'y' or 'Y':
+        if start == 'y' or start == 'Y':
             print(G+"\n[+]"+W+" Bluetooth Ping Of Death Attack Started ...")
             ts(1)
             print(G+"[+]"+W+" Sending packets to the victim. Be patient!")
@@ -51,14 +51,14 @@ def main():
                 print(R+"[-]"+W+" Try again!")
                 ts(2)
                 main()
-        elif start == 'n' or 'N':
-            print("\n[*] Exiting...")
+        elif start == 'n' or start == 'N':
+            print(B+"\n[*]"+W+" Exiting...")
             ts(1)
         else:
             print("Check your command!")
             main()
     except(KeyboardInterrupt):
-        print("\n[*] Exiting...")
+        print(B+"\n[*]"+W+" Exiting...")
 
 if __name__ == '__main__':
     main()
